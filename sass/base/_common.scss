@@ -1,0 +1,45 @@
+body {
+  color: var(--primary-text-color);
+  font-family: Roboto, sans-serif;
+  letter-spacing: 0.03em;
+  line-height: 1.71;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+h1,
+h2,
+h3,
+p,
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul {
+  list-style: none;
+}
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.list {
+  padding: 0;
+  margin: 0;
+}
+.link {
+  text-decoration: none;
+}
+.title {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+footer {
+  display: flex;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: var(--background-color);
+}

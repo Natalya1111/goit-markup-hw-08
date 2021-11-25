@@ -1,0 +1,46 @@
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 528px;
+  height: 581px;
+  padding: 40px;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transition: transform 500ms var(--timing-function),
+    opacity 500ms var(--timing-function);
+  background-color: var(--second-text-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.btn-modal {
+  display: flex;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  right: 8px;
+  top: 8px;
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--second-text-color);
+  transition: color 250ms var(--timing-function);
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+}
+
+.backdrop-icon {
+  height: 18px;
+  width: 18px;
+  fill: currentColor;
+}

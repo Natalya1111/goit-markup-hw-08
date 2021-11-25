@@ -1,0 +1,11 @@
+.logo__text {
+  color: var(--accent-color);
+}
+.logo {
+  display: flex;
+  color: var(--title-text-color);
+  font-family: Raleway, sans-serif;
+  font-size: 26px;
+  line-height: 1.2;
+  text-decoration: none;
+}
