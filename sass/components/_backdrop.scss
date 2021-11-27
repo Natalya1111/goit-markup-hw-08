@@ -1,5 +1,6 @@
 .backdrop {
   position: fixed;
+  padding: 93px 15px;
   top: 0;
   left: 0;
   width: 100vw;
@@ -9,6 +10,7 @@
   transition: opacity 500ms var(--timing-function),
     visibility 500ms var(--timing-function);
   background: rgba(0, 0, 0, 0.2);
+  overflow-y: scroll;
 }
 
 .backdrop.is-hidden {
