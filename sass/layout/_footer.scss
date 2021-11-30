@@ -3,10 +3,10 @@
   color: var(--second-text-color);
 }
 
-.footer__container {
-  display: flex;
-  align-items: baseline;
-}
+/*.footer__container {
+  /*display: flex;*/
+/*align-items: baseline;
+}*/
 
 /* * Address */
 
@@ -54,7 +54,7 @@
 .footer__block--right .footer__social-list {
   margin-top: 20px;
   padding: 0;
-  justify-content: flex-start;
+  /*justify-content: flex-start;*/
 }
 .footer__block--right .link-social {
   color: var(--second-text-color);
@@ -76,13 +76,13 @@
 }
 .footer__block--sign .footer__sign-form {
   padding: 0;
-  justify-content: flex-start;
+  /*justify-content: flex-start;*/
 }
 
-.footer__sign-form {
+/*.footer__sign-form {
   display: flex;
   flex-direction: column;
-}
+}*/
 
 .footer__sign-form-head {
   margin-bottom: 20px;
@@ -117,9 +117,9 @@
   }
 }
 
-.footer__sign-form-wrapper {
+/*.footer__sign-form-wrapper {
   display: flex;
-}
+}*/
 
 .footer__sign-form-button {
   text-align: start;
