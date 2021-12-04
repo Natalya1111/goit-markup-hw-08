@@ -19,28 +19,89 @@
     <!--Шапка сайта-->
     <header class="header">
       <div class="container main-nav">
-        <a class="logo header__logo" href="index.html" lang="en"
-          ><span class="logo__text">Web</span>Studio</a
-        >
-        <nav class="header__nav">
-          <ul class="header__site-nav list">
-            <li class="header__item">
+        <nav class="header-nav">
+          <a class="logo header__logo" href="index.html" lang="en"
+            ><span class="logo__text">Web</span>Studio</a
+          >
+          <ul class="header-nav__list">
+            <li class="header-nav__item">
               <a href="./index.html" class="header__link">Студия</a>
             </li>
-            <li class="header__item">
+            <li class="header-nav__item">
               <a
                 href="./portfolio.html"
                 class="header__link header__link--current"
                 >Портфолио</a
               >
             </li>
-            <li class="header__item">
+            <li class="header-nav__item">
               <a href="" class="header__link">Контакты</a>
             </li>
           </ul>
         </nav>
-        <ul class="header__contact list">
-          <li class="header__item">
+
+        <!-- START Mobile Menu -->
+        <button class="burger-btn" data-menu-open>
+          <svg class="burger-icon">
+            <use class="icon-menu" href="./images/icons.svg#menu"></use>
+          </svg>
+        </button>
+        <div class="mobile-menu" data-menu>
+          <button class="close-btn" data-menu-close>
+            <svg class="close-btn-icon">
+              <use class="icon-cross" href="./images/icons.svg#cross"></use>
+            </svg>
+          </button>
+          <div class="mobile-menu__nav">
+            <ul class="mobile-nav">
+              <li class="mobile-nav__item">
+                <a href="./index.html" class="mobile-nav__link">Студия</a>
+              </li>
+              <li class="mobile-nav__item">
+                <a
+                  href="./portfolio.html"
+                  class="mobile-nav__link mobile-nav__link--current"
+                  >Портфолио</a
+                >
+              </li>
+              <li class="mobile-nav__item">
+                <a href="" class="mobile-nav__link">Контакты</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mobile-menu__contact">
+            <ul class="mobile-contact">
+              <li class="mobile-contact__item">
+                <a href="tel:+380961111111" class="mobile-contact__tel">
+                  +38 096 111 11 11</a
+                >
+              </li>
+              <li class="mobile-contact__item">
+                <a href="mailto:info@devstudio.com" class="mobile-contact__mail"
+                  >info@devstudio.com</a
+                >
+              </li>
+            </ul>
+            <ul class="mobile-social">
+              <li class="mobile-social__item">
+                <a href class="mobile-social__link">Instagram</a>
+              </li>
+              <li class="mobile-social__item">
+                <a href class="mobile-social__link">Twitter</a>
+              </li>
+              <li class="mobile-social__item">
+                <a href class="mobile-social__link">Facebook</a>
+              </li>
+              <li class="mobile-social__item">
+                <a href class="mobile-social__link">Linkedin</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!--END-Mobile Menu-->
+        <ul class="contact-list">
+          <li class="contact-list__item">
             <a href="mailto:info@devstudio.com" class="header__link">
               <svg class="header__link-envelope">
                 <use href="./images/icons.svg#icon-envelope-1"></use>
@@ -48,7 +109,7 @@
               info@devstudio.com
             </a>
           </li>
-          <li class="header__item">
+          <li class="contact-list__item">
             <a href="tel:+380961111111" class="header__link">
               <svg class="header__link-smartphone">
                 <use href="./images/icons.svg#icon-smartphone-1"></use>
@@ -62,9 +123,8 @@
     <main>
       <h1 class="visually-hidden">Портфолио</h1>
       <!--Кнопки фильтров-->
-      <section class="section">
+      <section class="section portfolio">
         <div class="container">
-          <h2 class="visually-hidden">Фильтры</h2>
           <ul class="filters">
             <li>
               <button type="button" class="button primary">Все</button>
@@ -85,15 +145,58 @@
 
           <!--Портфолио-->
           <h2 class="visually-hidden">Наши работы</h2>
-          <ul class="work-list container">
+          <ul class="work-list">
             <li class="flex-element">
               <a href="portfolio.html" class="flex-link">
                 <div class="flex-img">
-                  <img
-                    src="./images/technokryk.jpg"
-                    alt="Веб-сайт"
-                    width="370"
-                  />
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/works-1-desktop.webp    1x,
+                        ./images/works/works-1-desktop@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/works-1-desktop.jpg   1x,
+                        ./images/works/team-1-desktop@2x.jpg 2x
+                      "
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/works-1-tablet.webp    1x,
+                        ./images/works/works-1-tablet@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/works-1-tablet.jpg    1x,
+                        ./images/works/works-1-tablet@2x.jpg 2x
+                      "
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/works-1.webp    1x,
+                        ./images/works/works-1@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/works-1.jpg    1x,
+                        ./images/works/works-1@2x.jpg 2x
+                      "
+                    />
+                    <img src="#" alt="Веб-сайт" />
+                  </picture>
                   <div class="submenu">
                     <p>
                       Технокряк это современная <br />
@@ -114,7 +217,54 @@
             <li class="flex-element">
               <a href="portfolio.html" class="flex-link">
                 <div class="flex-img">
-                  <img src="./images/new-orlean.jpg" alt="Постер" width="370" />
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/works-2-desktop.webp    1x,
+                        ./images/works/works-2-desktop@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/works-2-desktop.jpg   1x,
+                        ./images/works/team-2-desktop@2x.jpg 2x
+                      "
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/works-2-tablet.webp    1x,
+                        ./images/works/works-2-tablet@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/works-2-tablet.jpg    1x,
+                        ./images/works/works-2-tablet@2x.jpg 2x
+                      "
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/works-2.webp    1x,
+                        ./images/works/works-2@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/works-2.jpg    1x,
+                        ./images/works/works-2@2x.jpg 2x
+                      "
+                    />
+                    <img src="#" alt="Постер" />
+                  </picture>
                   <div class="submenu">
                     <p>
                       Технокряк это современная <br />
@@ -137,11 +287,54 @@
             <li class="flex-element">
               <a href="portfolio.html" class="flex-link">
                 <div class="flex-img">
-                  <img
-                    src="./images/seafood.jpg"
-                    alt="Логотип ресторана"
-                    width="370"
-                  />
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/works-3-desktop.webp    1x,
+                        ./images/works/works-3-desktop@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/works-3-desktop.jpg   1x,
+                        ./images/works/team-3-desktop@2x.jpg 2x
+                      "
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/works-3-tablet.webp    1x,
+                        ./images/works/works-3-tablet@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/works-3-tablet.jpg    1x,
+                        ./images/works/works-3-tablet@2x.jpg 2x
+                      "
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/works-3.webp    1x,
+                        ./images/works/works-3@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/works-3.jpg    1x,
+                        ./images/works/works-3@2x.jpg 2x
+                      "
+                    />
+                    <img src="#" alt="Логотип ресторана" />
+                  </picture>
                   <div class="submenu">
                     <p>
                       Технокряк это современная <br />
@@ -162,11 +355,54 @@
             <li class="flex-element">
               <a href="portfolio.html" class="flex-link">
                 <div class="flex-img">
-                  <img
-                    src="./images/prime.jpg"
-                    alt="Фото наушников"
-                    width="370"
-                  />
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/works-4-desktop.webp    1x,
+                        ./images/works/works-4-desktop@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/works-4-desktop.jpg   1x,
+                        ./images/works/team-4-desktop@2x.jpg 2x
+                      "
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/works-4-tablet.webp    1x,
+                        ./images/works/works-4-tablet@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/works-4-tablet.jpg    1x,
+                        ./images/works/works-4-tablet@2x.jpg 2x
+                      "
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/works-4.webp    1x,
+                        ./images/works/works-4@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/works-4.jpg    1x,
+                        ./images/works/works-4@2x.jpg 2x
+                      "
+                    />
+                    <img src="#" alt="Наушники" />
+                  </picture>
                   <div class="submenu">
                     <p>
                       Технокряк это современная <br />
@@ -187,7 +423,54 @@
             <li class="flex-element">
               <a href="portfolio.html" class="flex-link">
                 <div class="flex-img">
-                  <img src="./images/boxes.jpg" alt="Фото боксов" width="370" />
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/works-5-desktop.webp    1x,
+                        ./images/works/works-5-desktop@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/works-5-desktop.jpg   1x,
+                        ./images/works/team-5-desktop@2x.jpg 2x
+                      "
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/works-5-tablet.webp    1x,
+                        ./images/works/works-5-tablet@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/works-5-tablet.jpg    1x,
+                        ./images/works/works-5-tablet@2x.jpg 2x
+                      "
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/works-5.webp    1x,
+                        ./images/works/works-5@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/works-5.jpg    1x,
+                        ./images/works/works-5@2x.jpg 2x
+                      "
+                    />
+                    <img src="#" alt="Боксы" />
+                  </picture>
                   <div class="submenu">
                     <p>
                       Технокряк это современная <br />
@@ -208,11 +491,54 @@
             <li class="flex-element">
               <a href="portfolio.html" class="flex-link">
                 <div class="flex-img">
-                  <img
-                    src="./images/inspiration.jpg"
-                    alt="Фото монитора"
-                    width="370"
-                  />
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/works-6-desktop.webp    1x,
+                        ./images/works/works-6-desktop@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/works-6-desktop.jpg   1x,
+                        ./images/works/team-6-desktop@2x.jpg 2x
+                      "
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/works-6-tablet.webp    1x,
+                        ./images/works/works-6-tablet@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/works-6-tablet.jpg    1x,
+                        ./images/works/works-6-tablet@2x.jpg 2x
+                      "
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/works-6.webp    1x,
+                        ./images/works/works-6@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/works-6.jpg    1x,
+                        ./images/works/works-6@2x.jpg 2x
+                      "
+                    />
+                    <img src="#" alt="Монитор" />
+                  </picture>
                   <div class="submenu">
                     <p>
                       Технокряк это современная <br />
@@ -233,11 +559,54 @@
             <li class="flex-element">
               <a href="portfolio.html" class="flex-link">
                 <div class="flex-img">
-                  <img
-                    src="./images/limited-ed.jpg"
-                    alt="Раскрытый журнал"
-                    width="370"
-                  />
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/works-7-desktop.webp    1x,
+                        ./images/works/works-7-desktop@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/works-7-desktop.jpg   1x,
+                        ./images/works/team-7-desktop@2x.jpg 2x
+                      "
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/works-7-tablet.webp    1x,
+                        ./images/works/works-7-tablet@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/works-7-tablet.jpg    1x,
+                        ./images/works/works-7-tablet@2x.jpg 2x
+                      "
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/works-7.webp    1x,
+                        ./images/works/works-7@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/works-7.jpg    1x,
+                        ./images/works/works-7@2x.jpg 2x
+                      "
+                    />
+                    <img src="#" alt="Раскрытый журнал" />
+                  </picture>
                   <div class="submenu">
                     <p>
                       Технокряк это современная <br />
@@ -260,7 +629,54 @@
             <li class="flex-element">
               <a href="portfolio.html" class="flex-link">
                 <div class="flex-img">
-                  <img src="./images/lab.jpg" alt="Фото этикетки" width="370" />
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/works-8-desktop.webp    1x,
+                        ./images/works/works-8-desktop@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/works-8-desktop.jpg   1x,
+                        ./images/works/team-8-desktop@2x.jpg 2x
+                      "
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/works-8-tablet.webp    1x,
+                        ./images/works/works-8-tablet@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/works-8-tablet.jpg    1x,
+                        ./images/works/works-8-tablet@2x.jpg 2x
+                      "
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/works-8.webp    1x,
+                        ./images/works/works-8@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/works-8.jpg    1x,
+                        ./images/works/works-8@2x.jpg 2x
+                      "
+                    />
+                    <img src="#" alt="Фото этикетки" />
+                  </picture>
                   <div class="submenu">
                     <p>
                       Технокряк это современная <br />
@@ -281,7 +697,54 @@
             <li class="flex-element">
               <a href="portfolio.html" class="flex-link">
                 <div class="flex-img">
-                  <img src="./images/growing.jpg" alt="Ноутбук" width="370" />
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/works-9-desktop.webp    1x,
+                        ./images/works/works-9-desktop@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/works-9-desktop.jpg   1x,
+                        ./images/works/team-9-desktop@2x.jpg 2x
+                      "
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/works-9-tablet.webp    1x,
+                        ./images/works/works-9-tablet@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/works-9-tablet.jpg    1x,
+                        ./images/works/works-9-tablet@2x.jpg 2x
+                      "
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/works-9.webp    1x,
+                        ./images/works/works-9@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/works-9.jpg    1x,
+                        ./images/works/works-9@2x.jpg 2x
+                      "
+                    />
+                    <img src="#" alt="Ноутбук" />
+                  </picture>
                   <div class="submenu">
                     <p>
                       Технокряк это современная <br />
@@ -303,9 +766,10 @@
         </div>
       </section>
     </main>
+    <!--FOOTER-->
     <footer>
       <div class="container footer__container">
-        <div class="footer__footer--left">
+        <div class="footer__block footer__block--left">
           <a class="logo footer__logo" href="index.html" lang="en"
             ><span class="logo__text">Web</span>Studio</a
           >
@@ -333,7 +797,7 @@
             </ul>
           </address>
         </div>
-        <div class="footer__footer--right">
+        <div class="footer__block footer__block--right">
           <h3 class="join">Присоединяйтесь</h3>
           <ul class="social-list footer__social-list">
             <li class="social-item footer__social-item">
@@ -378,31 +842,27 @@
             </li>
           </ul>
         </div>
-        <div class="footer__footer--sign">
-          <form action="#" class="footer__sign-form">
-            <p class="footer__sign-form-head">Подпишитесь на рассылку</p>
-            <div class="footer__sign-form-wrapper">
-              <label class="footer__sign-form-field">
-                <input
-                  type="email"
-                  class="footer__sign-form-input"
-                  name="user-email"
-                  placeholder="E-mail"
-                />
-              </label>
-              <div class="footer__send-button">
-                <button class="footer__sign-form-button" type="submit">
-                  Подписаться
-                </button>
-                <svg class="footer__sign-form-icon">
-                  <use href="./images/icons.svg#icon-send"></use>
-                </svg>
-              </div>
-            </div>
+        <div class="footer__block footer__block--sign">
+          <p class="footer__sign-form-head">Подпишитесь на рассылку</p>
+          <form class="footer__sign-form">
+            <input
+              type="email"
+              class="footer__sign-form-input"
+              name="user-email"
+              placeholder="E-mail"
+            />
+
+            <button class="footer__sign-form-button" type="submit">
+              Подписаться
+              <svg class="footer__sign-form-icon">
+                <use href="./images/icons.svg#icon-send"></use>
+              </svg>
+            </button>
           </form>
         </div>
       </div>
     </footer>
     <script src="./js/modal.js"></script>
+    <script src="./js/menu.js"></script>
   </body>
 </html>

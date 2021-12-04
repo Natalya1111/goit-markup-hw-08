@@ -1,7 +1,6 @@
 .header {
-  position: absolute;
-  top: 0;
-  left: 0;
+  /*position: absolute;*/
+  z-index: 3;
   width: 100%;
   padding-top: 16px;
   padding-bottom: 16px;
@@ -21,27 +20,23 @@
 
 /* Site nav */
 
-.header__nav {
+.main-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
-.header__item {
-  @media screen and (max-width: 1199px) {
-    display: none;
-  }
+.header-nav {
+  display: flex;
+  align-items: center;
 }
 
-.menu-button {
-  display: inline-flex;
-  margin: 0;
+.burger-btn {
+  margin-left: auto;
   padding: 0;
   border: none;
   background-color: transparent;
-  text-align: center;
+  line-height: 0;
   transition: color 250ms var(--timing-function);
-
   &:hover,
   &:focus {
     color: var(--accent-color);
@@ -51,70 +46,152 @@
     display: none;
   }
 }
-
-.menu-button .icon-cross {
-  display: none;
+.burger-icon {
+  width: 40px;
+  height: 40px;
+  fill: currentColor;
 }
 
-.menu-button.is-open .icon-cross {
-  display: block;
-}
-
-.menu-button.is-open .icon-menu {
-  display: none;
-}
-
-.menu-container {
-  background-color: palegoldenrod;
+/*START Mobile Menu*/
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   padding: 48px 40px;
-  text-align: start;
-  font-size: 20px;
+  opacity: 0;
+  justify-content: space-between;
+  visibility: hidden;
+  pointer-events: none;
 
+  background-color: var(--second-text-color);
+  transition: opacity 250ms linear, visibility 250ms linear;
+}
+
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+  line-height: 0;
+  border: none;
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+}
+
+.close-btn-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.mobile-nav .mobile-nav__link {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.18;
+  letter-spacing: 0.02em;
+  color: var(--title-text-color);
+}
+.mobile-nav .mobile-nav__link--current {
+  color: var(--accent-color);
+}
+
+.mobile-nav__item {
+  &:not(last-child) {
+    margin-bottom: 32px;
+  }
+}
+.mobile-contact__tel {
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 1.18;
+  letter-spacing: 0.02em;
+  color: var(--accent-color);
+}
+.mobile-contact__mail {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.17;
+  letter-spacing: 0.02em;
+  color: var(--primary-text-color);
+}
+
+.mobile-contact__item {
+  &:not(last-child) {
+    margin-bottom: 32px;
+  }
+}
+.mobile-contact {
+  margin-bottom: 64px;
+}
+.mobile-social {
+  display: flex;
+}
+.mobile-social__link {
+  margin: 10px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.22;
+  letter-spacing: 0.02em;
+  color: var(--accent-color);
+}
+
+.mobile-social__item {
+  &:not(:last-child) {
+    border-right: 1px solid rgba(33, 33, 33, 0.2);
+  }
+}
+
+/*END-Mobile Menu*/
+
+.header-nav__item,
+.contact-list__item {
   @media screen and (max-width: 767px) {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    &.is-open {
-      display: block;
+  }
+}
+.contact-list__item {
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    &:not(:last-child) {
+      margin-bottom: 10px;
     }
+  }
+}
+
+.header-nav__list {
+  @media screen and (max-width: 767px) {
+    display: none;
   }
   @media screen and (min-width: 768px) {
     display: flex;
-    flex-grow: 1;
-    justify-content: space-between;
-    padding: 0;
+    position: relative;
     margin-left: 88px;
   }
-  @media screen and (min-width: 1200px) {
-    display: flex;
-    flex-grow: 1;
-    justify-content: space-between;
-    padding: 0;
-    margin-left: 93px;
-  }
 }
 
-.navigation,
-.contacts {
-  width: 100px;
-}
-.header__site-nav {
-  display: none;
-  position: relative;
-  margin-left: 25px;
-}
-
-.header__site-nav .header__item {
+.header-nav .header-nav__item {
   &:not(:last-child) {
     margin-right: 50px;
   }
 }
-.header__site-nav .header__link {
-  display: block;
+.header-nav .header__link {
+  position: relative;
+
   color: var(--title-text-color);
   background-color: var(--second-text-color);
   font-weight: 500;
@@ -128,34 +205,43 @@
   }
 }
 
-.header__site-nav .header__link--current {
+.header-nav .header__link--current {
   color: var(--accent-color);
 }
 
 .header__link--current {
-  position: relative;
-  display: block;
-
-  &::after {
-    position: absolute;
-    /*display: flex;*/
-
-    display: none;
-
-    top: 45px;
-    content: "";
-    width: 500%;
-    height: 4px;
-    background-color: var(--accent-color);
-    border-radius: 2px;
+  @media screen and (min-width: 768px) {
+    &::after {
+      position: absolute;
+      display: block;
+      top: 51px;
+      content: "";
+      width: 100%;
+      height: 4px;
+      background-color: var(--accent-color);
+      border-radius: 2px;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    &::after {
+      top: 45px;
+    }
   }
 }
 
 /* Сontact */
 
-.header__contact.list {
-  display: none;
-  margin-left: auto;
+.contact-list {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    margin-left: auto;
+  }
+
+  @media screen and (min-width: 1200px) {
+    display: flex;
+  }
 }
 
 .header__link-envelope {
@@ -182,13 +268,13 @@
   }
 }
 
-.header__contact.list .header__item + .header__item {
-  margin-left: 50px;
+.contact-list .contact-list__item + .contact-list__item {
+  @media screen and (min-width: 1200px) {
+    margin-left: 50px;
+  }
 }
-/* contact.list .item:last-child{
-  margin-left: 50px */
 
-.header__contact.list .header__link {
+.contact-list .header__link {
   color: var(--primary-text-color);
   font-weight: 500;
   font-size: 14px;
@@ -199,6 +285,9 @@
   &:hover,
   &:focus {
     color: var(--accent-color);
+  }
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    justify-content: start;
   }
 }
 
