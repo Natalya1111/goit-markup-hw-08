@@ -246,6 +246,16 @@ footer {
   border-radius: 4px;
 }
 
+@media screen and (min-width: 768px) {
+  .modal {
+    position: absolute;
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
 @media screen and (min-width: 1200px) {
   .modal {
     position: absolute;
@@ -808,7 +818,7 @@ footer {
 
 @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), screen and (min-width: 768px) and (min-resolution: 192dpi), screen and (min-width: 768px) and (min-resolution: 2dppx) {
   .hero {
-    background-image: url("../../images/hero_tablet@2x.jpg");
+    background-image: url("../images/hero_tablet@2x.jpg");
   }
 }
 
@@ -824,7 +834,7 @@ footer {
 
 @media screen and (min-width: 1200px) and (min-device-pixel-ratio: 2), screen and (min-width: 1200px) and (min-resolution: 192dpi), screen and (min-width: 1200px) and (min-resolution: 2dppx) {
   .hero {
-    background-image: url("../../images/hero_desktop@2x.jpg");
+    background-image: url("../images/hero_desktop@2x.jpg");
   }
 }
 
